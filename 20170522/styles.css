@@ -1,0 +1,16 @@
+#sei, #mei, #address, #tell1, #tell2, #tell3, #mail1, #mail2, #category, #situmon{
+    width: 50px;
+    border: 2px #000 solid;
+}
+
+#situmon {
+    width:100%;
+    height:100%;
+}
+table {
+    border-collapse: collapse;
+}
+
+table, td {
+    border: 3px solid #ffffff;
+}
