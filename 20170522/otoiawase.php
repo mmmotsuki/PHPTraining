@@ -1,3 +1,42 @@
+<!-- <?php
+
+$errors = array();
+
+if(isset($_POST['submit']) && $_POST['submit'] === "送信"){
+
+    $sei = $_GET['sei'];
+    $mei = $_GET['mei'];
+    $seibetu = $_GET['seibetu'];
+    $address = $_GET['address'];
+    $tell1 = $_GET['tell1'];
+    $tell2 = $_GET['tell2'];
+    $tell3 = $_GET['tell3'];
+    $mail1 = $_GET['mail1'];
+    $mail2 = $_GET['mail2'];
+    $where = $_GET['where'];
+    $category = $_GET['category'];
+    $situmon = $_GET['situmon'];
+
+    if($sei === ""){
+        $errors['sei'] = "名前が入力されていません。";
+    }
+    if($mei === ""){
+        $errors['mei'] = "名前が入力されていません。";
+    }
+    if($tell1 === "" || $tell2 === "" || $tell3 === "" ) {
+        $errors['tell'] = "電話番号が入力されていません。";
+    }
+    if($mail1 === "" || $mail2 === "") {
+        $errors['mail'] = "メールアドレスが入力されていません。";
+    }
+    else {
+        header( 'Location:error.php' );
+        exit;
+    }
+
+}
+?> -->
+
 <html>
 <head>
 <title>  </title>
@@ -17,21 +56,22 @@
 <tr>
 <td >姓</td>
 <td><label for="sei"></label>
-    <input id="sei" type="text" name="sei" value=""></td>
+    <input id="sei" type="text" name="sei" value="" required></td>
+
 </tr>
 
 <tr>
 <td>名</td>
 <td><label for="mei"></label>
-    <input id="mei" type="text" name="mei" value=""></td>
+    <input id="mei" type="text" name="mei" value="" required></td>
 </tr>
 
 <tr>
     <td>性別</td>
     <td>
-        <input id="man" type="radio" name="seibetu" value="男" checked><label for="男">男</labelL>
-        <input id="woman" type="radio" name="seibetu" value="女"><label for="女">女</label>
-        <input id="other" type="radio" name="seibetu" value="不明"><label for="不明">不明</label>
+        <label for="man"><input id="man" type="radio" name="seibetu" value="男" checked>男</labelL>
+        <label for="woman"><input id="woman" type="radio" name="seibetu" value="女">女</label>
+        <label for="other"><input id="other" type="radio" name="seibetu" value="不明">不明</label>
     </td>
 </tr>
 
@@ -44,13 +84,13 @@
 <tr>
 <td>電話番号</td>
 <td><label for="tell1">
-        <input id="tell1" type="text" name="tell1" value="">
+        <input id="tell1" type="text" name="tell1" value="" pattern="\d{1,5}" required>
     </label> -
     <label for="tell2">
-        <input id="tell2" type="text" name="tell2" value="">
+        <input id="tell2" type="text" name="tell2" value="" pettern ="\d{1,4}" required>
     </label> -
     <label for="tell3">
-        <input id="tell3" type="text" name="tell3" value="">
+        <input id="tell3" type="text" name="tell3" value="" pattern="\d{4,5}" required>
     </label>
 </td>
 </tr>
@@ -59,10 +99,10 @@
 <td>メールアドレス</td>
 <td>
 <p><label for="mail1"></label>
-        <input id ="mail1" type="text" name="mail1" value="">
+        <input id ="mail1" type="text" name="mail1" value="" required>
     </label> @
     <label for="mail2">
-<input id="mail2" type="text" name="mail2" value="">
+<input id="mail2" type="text" name="mail2" value="" required>
 </label>
 </p>
 </td>
@@ -70,12 +110,11 @@
 
 <tr>
 <td>どこで知ったか</td>
-<td>
-    <p>
-        <input id="magazine" type="checkbox" name="where" value="雑誌"><label for="雑誌">雑誌</labelL>
-        <input id="shinbun" type="checkbox" name="where" value="新聞"><label for="新聞">新聞</label>
-</p>
-</td>
+    <td>
+        <input type="hidden" name="where" value="">
+        <label for="magazine"><input id="magazine" type="checkbox" name="where" value="雑誌">雑誌</labelL>
+        <label for="shinbun"><input id="shinbun" type="checkbox" name="where" value="新聞">新聞</label>
+    </td>
 </tr>
 
 <tr>
@@ -98,11 +137,11 @@
 </tr>
 
 <tr>
-<td colspan="2">
+<td colspan="2"><center>
     <label for="button"></label>
     <input id="button" type="submit" name="Submit" value="送信">
     <input id="button" type="button" value="リセット" onclick="this.form.reset();">
-</td>
+</center></td>
 </tr>
 
 </tbody>

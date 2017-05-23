@@ -25,7 +25,7 @@ $situmon = $_GET['situmon'];
 <center>お問い合わせ終了ページ</center>
 <br>
 
-<form action="otoiawasefinish.php" method="get">
+<form action="otoiawase.php" method="get">
 <center>
 <table border="1">
     <col width="130" align="center">
@@ -60,44 +60,31 @@ else {
 </tr>
 
 <tr>
-<td>メールアドレス</td>
-<td>
-<p><?php echo "$mail1 @ $mail2"; ?>
-</p>
-</td>
+    <td>メールアドレス</td>
+    <td><?php echo "$mail1 @ $mail2"; ?></td>
 </tr>
-
 <tr>
-<td>どこで知ったか</td>
-<td>
-    <p>
-        <?php echo "$where"; ?>
-</p>
-</td>
+    <td>どこで知ったか</td>
+    <td><?php echo "$where"; ?></td>
 </tr>
-
 <tr>
-<td>質問カテゴリ</td>
-<td><?php echo "$category"; ?></td>
+    <td>質問カテゴリ</td>
+    <td><?php echo "$category"; ?></td>
 </tr>
-
 <tr><td><br></td></tr>
-
 <tr>
-<td>質問内容</td>
+    <td>質問内容</td>
 </tr>
 <tr>
-<td colspan="2" style="position:relative" height="200" valign="top">
-<?php echo "$situmon"; ?>
-</td>
+    <td colspan="2" style="position:relative" height="200" valign="top"　border:1px solid #666666; position: absolute; table-layout:fixed;>
+    <div id="situmon" table-layout:fixed;><?php echo "$situmon"; ?></div></td>
 </tr>
 
 <tr>
-<td colspan="2" style="position:relative" height="200" border="#0000ff" width="1">
+    <td colspan="2"><center>
     <label for="button"></label>
-    <input id="button" type="submit" name="Submit" value="送信">
-    <input id="button" type="button" value="リセット" onclick="this.form.reset();">
-</td>
+    <input id="button" type="submit" name="reSubmit" value="未入力状態で書き直します">
+</center></td>
 </tr>
 
 </tbody>
