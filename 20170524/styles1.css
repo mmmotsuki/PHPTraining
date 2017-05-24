@@ -1,0 +1,59 @@
+body {
+    background-color: #fff;
+}
+h1 {
+    text-align: center;
+}
+span {
+    color: red ;
+}
+textarea {
+    resize: none;
+    background-color: #ffffff;
+}
+
+.main {
+    width:500px;
+    border: 2px solid #000;
+    background: #FFFEE7;
+    margin: 30px auto;
+}
+.sub{
+    text-align: center;
+    color: gray;
+    font-size: 14px;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 300px;
+    border: 3px solid #FFFEE7;
+    background-color: #FFFEE7;
+}
+td {
+    table-layout: fixed;
+    width: 150px;
+}
+
+#sei, #mei, #address, #category, #situmon{
+    width: 70px;
+    border: 2px #000 solid;
+}
+#tell1, #tell2, #tell3 {
+    width: 45px;
+    border: 2px #000 solid;
+}
+#mail1, #mail2 {
+    width: 80px;
+    border: 2px #000 solid;
+}
+
+#situmon, #address {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    table-layout: fixed;
+    word-wrap: break-word;
+    background-color: #ffffff;
+}
