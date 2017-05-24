@@ -1,9 +1,5 @@
 <?php
 
-//echo '<pre>';
-//var_dump($_POST);
-//echo '</pre>';
-
 $errors = array();
 
 if(isset($_POST['submit']) && $_POST['submit'] === "ログイン"){
