@@ -7,7 +7,7 @@
 <div class="main">
 
 <h1>お問い合わせ</h1>
-<p class="sub">下記フォームに入力し、<span>送信ボタン</span>を押してください。</p>
+<p class="sub">下記フォームに入力し、<span>確認ボタン</span>を押してください。</p>
 <br>
 
 <form action="otoiawasekakunin.php" method="get">
@@ -101,17 +101,15 @@
     <textarea id="situmon" name="situmon" style="box-sizing:border-box" \></textarea>
 </td>
 </tr>
+</tbody>
+</table>
 
-<tr>
-<td colspan="2"><center>
+<center><div class="button">
     <label for="button"></label>
     <input id="button" type="submit" name="Submit" value="確認">
     <input id="button" type="button" value="リセット" onclick="this.form.reset();">
-</center></td>
-</tr>
+</center></div>
 
-</tbody>
-</table>
 </form>
 </body>
 </div>

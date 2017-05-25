@@ -8,9 +8,10 @@ $mail = $_SESSION['mail1'] . "@" . $_SESSION['mail2'];
 
 $co = fopen( "count.txt", "r+" ); // ファイル開く
 $count = trim(fgets( $co, 10 )); // 9桁分値読み取り
-$str = fgets($co);
+$str = fgets($co);2
 
 $_SESSION['count'] = $count;
+
 
 $list = [str_pad($count, 4, 0, STR_PAD_LEFT), $name, $_SESSION['seibetu'], $_SESSION['address'], $tell, $mail, $_SESSION['where'], $_SESSION['category'], $_SESSION['situmon']];
 $fp = fopen( "itiran.csv", "a+" ); // ファイル開く

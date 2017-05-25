@@ -1,0 +1,102 @@
+body {
+    background-color: #fff;
+}
+h1 {
+    text-align: left;
+}
+span {
+    color: red ;
+}
+textarea {
+    resize: none;
+    background-color: #ffffff;
+}
+/* Chrome, Safari */
+::-webkit-input-placeholder{
+    color: #C0C0C0;
+}
+/* Firefox */
+::-moz-placeholder{
+    color: #C0C0C0;
+}
+/* Firefox 18以前 */
+:-moz-placeholder{
+    color: #C0C0C0;
+}
+/* IE */
+:-ms-input-placeholder{
+    color: #C0C0C0;
+}
+
+.main {
+    width:800px;
+    border: 1px solid #E2D9D0;
+    background: #fff;
+    margin: 30px auto;
+    padding: 10px 70px;
+}
+.sub{
+    color: gray;
+    font-size: 14px;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 800px;
+    border: 1px solid #E2D9D0;
+    background-color: #fff;
+}
+td {
+    table-layout: fixed;
+    word-wrap: break-word;
+    border: 1px solid #E2D9D0;
+    height: 70px
+}
+
+.r1 {
+    background-color: #E2D9D0;
+    width: 140px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #fff;
+}
+.r2 {
+    background-color: #fff;
+    padding: 10px 10px;
+    border: 1px solid #E2D9D0;
+}
+.r3 {
+    background-color: #fff;
+    padding: 10px 10px;
+    border: 2px solid #fff;
+}
+.button {
+    margin: 50px auto;
+}
+#sei, #mei, #address, #category, #situmon{
+    border: 1px #E2D9D0 solid;
+}
+#sei, #mei {
+    width: 150px;
+}
+#tell1, #tell2, #tell3 {
+    width: 100px;
+    border: 1px #E2D9D0 solid;
+}
+#mail1, #mail2 {
+    width: 200px;
+    border: 1px #E2D9D0 solid;
+}
+
+#situmon {
+    width: 100%;
+    height: 200px;
+    overflow-y: scroll;
+    table-layout: fixed;
+    word-wrap: break-word;
+    background-color: #ffffff;
+}
+#address {
+    width: 100%;
+
+}
