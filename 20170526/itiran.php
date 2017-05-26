@@ -1,22 +1,18 @@
 <html>
 <head>
-<title>  </title>
+<title>お問い合わせ一覧</title>
 </head>
 <body>
 <div class="main">
 <link rel="stylesheet" href="styles2.css">
 <h1>お問い合わせ一覧</h1>
-<center>
-
-<table>
 
 <form action="search.php" method="get">
-<div class="serach">
+<div class="search">
     <input type="text" name="search1" value="" pettern ="\d{1,4}" placeholder="0000">
-    <input type="submit" name="search2" value="検索">　
+    <input type="submit" name="search2" value="No.検索">　
 </div>
 
-<center>
     <table>
         <tbody>
         <tr>
@@ -46,7 +42,7 @@
         fclose ($handle);
     }
     ?>
-</center>
+
 <br><br>
 </div>
 </body>

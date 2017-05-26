@@ -13,13 +13,16 @@
 table {
     border-collapse: collapse;
     table-layout: fixed;
+    width: 1000px;
     border: 1px solid red;
 }
 table tr:nth-child(even) {
+    word-wrap: break-word;
     background: #fff;
 }
 table tr:nth-child(odd) {
     background: #F0F0F0;
+    word-wrap: break-word;
 }
 td, tr {
     border: 1px solid #C0C0C0;
@@ -33,6 +36,9 @@ th {
 }
 #no { width: 50px; }
 #name { width: 120px; }
+#seibetu {
+    width: 50px;
+}
 #address {
     width: 250px;
 }
@@ -41,7 +47,7 @@ th {
     word-wrap: break-word;
 }
 #tell {
-    width: 120px;
+    width: 150px;
 }
 #where {
     width: 100px;
@@ -50,6 +56,12 @@ th {
     width: 50px;
 }
 #situmon {
-    width: 300px;
+    width: 250px;
     word-wrap: break-word;
+}
+div .search {
+    margin-bottom: 40px;
+}
+div .button {
+    margin-top: 40px;
 }

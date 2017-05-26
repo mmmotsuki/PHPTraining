@@ -10,7 +10,7 @@ $_SESSION['mail'] = $_GET['mail1'] . "@" . $_GET['mail2'];
 $_SESSION['category'] = $_GET['category'];
 $_SESSION['situmon'] = $_GET['situmon'];
 
-if($_GET['where1'] !== "" && $_GET['where1'] !== "") {
+if($_GET['where1'] !== "" && $_GET['where2'] !== "") {
     $_SESSION['where'] = $_GET['where1'] . "、" . $_GET['where2'];
 }
 else {
@@ -24,8 +24,8 @@ else {
 <title>  </title>
 <link rel="stylesheet" href="styles1.css">
 </head>
-<body>
 
+<body>
 <div class="main">
 
 <h1>内容確認ページ</h1>
@@ -90,7 +90,7 @@ else {
     <div class="row">
         <div class="r1"> 質問内容 </div>
         <div class="r2">
-            <p  id="situmon"><?php echo $_SESSION['situmon']; ?> </p>
+            <p id="situmon1"><?php echo $_SESSION['situmon']; ?> </p>
         </div>
     </div>
 </div>
