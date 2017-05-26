@@ -9,19 +9,18 @@
 <center>
 
 <table>
-
-    <tr>
-    <th width=40px>No.</th>
-    <th width=100px>q氏名</th>
-    <th width=40px>性別</th>
-    <th width=200px>住所</th>
-    <th width=140px>電話番号</th>
-    <th width=150px>メールアドレス</th>
-    <th width=70px>どこで知ったか</th>
-    <th width=70px>質問カテゴリ</th>
-    <label for="td3"></label>
-    <th id="td3">質問内容</th>
-    </tr>
+        <tbody>
+        <tr>
+        <th id="no">No.</th>
+        <th id="name">氏名</th>
+        <th id="seibetu">性別</th>
+        <th id="address">住所</th>
+        <th id="tell">電話番号</th>
+        <th id="mail">メールアドレス</th>
+        <th id="where">どこで知った</th>
+        <th id="category">質問カテゴリ</th>
+        <th id="situmon">質問内容</th>
+        </tr>
 
 <?php
 $file = "itiran.csv";
@@ -40,5 +39,6 @@ if ( ( $handle = fopen ( $file, "r" ) ) !== FALSE ) {
 </center>
 <br><br>
 </div>
+</tbody>
 </body>
 </html>

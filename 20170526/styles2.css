@@ -1,0 +1,55 @@
+/*body {
+    background-color: #fff;
+}*/
+
+.main {
+    width:1400px;
+    border: 1px solid #E2D9D0;
+    background: #fff;
+    margin: 30px auto;
+    padding: 10px 20px;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 1px solid red;
+}
+table tr:nth-child(even) {
+    background: #fff;
+}
+table tr:nth-child(odd) {
+    background: #F0F0F0;
+}
+td, tr {
+    border: 1px solid #C0C0C0;
+    word-wrap: break-word;
+    padding: 0px 3px;
+}
+th {
+    border: 1px solid #C0C0C0;
+    background-color: #E2D9D0;
+    word-wrap: break-word;
+}
+#no { width: 50px; }
+#name { width: 120px; }
+#address {
+    width: 250px;
+}
+#mail {
+    width: 300px;
+    word-wrap: break-word;
+}
+#tell {
+    width: 120px;
+}
+#where {
+    width: 100px;
+}
+#category {
+    width: 50px;
+}
+#situmon {
+    width: 300px;
+    word-wrap: break-word;
+}
