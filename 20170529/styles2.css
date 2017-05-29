@@ -66,5 +66,10 @@ div .search {
     margin-bottom: 40px;
 }
 div .button {
-    margin-top: 40px;
+    width: 300px;
+    margin: 40px auto;
+    display: flex;
+}
+div .button .button1, div .button .button1 {
+    width: 100px;
 }

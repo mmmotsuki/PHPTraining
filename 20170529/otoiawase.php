@@ -29,7 +29,7 @@
     <div class="row">
         <div class="r1"> 性別 </div>
         <div class="r2">
-            <label for="man"><input id="man" type="radio" name="" value="男" checked>男</label>
+            <label for="man"><input id="man" type="radio" name="sex" value="男" checked>男</label>
             <label for="woman"><input id="woman" type="radio" name="sex" value="女">女</label>
             <label for="other"><input id="other" type="radio" name="sex" value="不明">不明</label>
         </div>
