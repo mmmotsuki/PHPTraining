@@ -9,12 +9,12 @@
     margin: 30px auto;
     padding: 10px 20px;
 }
-
 table {
     border-collapse: collapse;
     table-layout: fixed;
     width: 1000px;
     border: 1px solid red;
+    margin: 0 auto;
 }
 table tr:nth-child(even) {
     /*word-wrap: break-word;*/
@@ -34,8 +34,12 @@ th {
     background-color: #E2D9D0;
     /*word-wrap: break-word;*/
 }
-#no { width: 100px; }
-#name { width: 120px; }
+#no {
+    width: 50px;
+}
+#name {
+    width: 120px;
+}
 #sex {
     width: 50px;
 }

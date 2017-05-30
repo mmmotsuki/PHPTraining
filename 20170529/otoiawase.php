@@ -12,7 +12,7 @@
 <p class="sub">下記フォームに入力し、<span>確認ボタン</span>を押してください。</p>
 <p class="sub"><span>※</span>の項目は必ず入力してください。</p>
 
-<form action="otoiawasekakunin.php" method="get">
+<form action="otoiawasekakunin.php" method="post">
 
 <div id="table">
 
@@ -114,12 +114,8 @@
         <div class="r1">メールアドレス<span>※</span></div>
             <div class="r2">
             <p>
-                <label for="mail1"></label>
-                <input id ="mail1" type="text" name="mail1" value="" placeholder="info" required>
-                </label> @
-                <label for="mail2">
+                <input id ="mail1" type="text" name="mail1" value="" placeholder="info" required> @
                 <input id="mail2" type="text" name="mail2" value=""  pattern="[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="sample.com" required>
-                </label>
             </p>
         </div>
     </div>

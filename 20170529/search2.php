@@ -9,13 +9,13 @@ rewind( $fp );
 
 //入力キーワードを空白区切りで配列に格納
 $SearchArr = [];
-$str = str_replace("　", " ", $_SESSION['keywords']);
+$str = str_replace("　", " ", $_GET['keywords']);
 $SearchArr = explode(" ", $str);
 
 if ($file) {
     if (empty($SearchArr) === FALSE) {
         //AND検索･･･文字列一致数＝キーワードの個数
-        if ($_SESSION['button'] == "AND") {
+        if ($_GET['button'] == "AND") {
             while ($line = fgets($file)) {
                 $flag = 0;  //一致数カウンタ
                 for ($j = 0; $j < count($SearchArr); $j++) {
@@ -35,7 +35,7 @@ if ($file) {
         }
 
         //OR検索･･･文字列一致数>0
-        elseif ($_SESSION['button'] == "OR") {
+        elseif ($_GET['button'] == "OR") {
             while ($line = fgets($file)) {
                 $flag = 0;  //一致数カウンタ
                 for ($j = 0; $j < count($SearchArr); $j++) {
@@ -69,7 +69,7 @@ fclose ($fp);
 <body>
 <div class="main">
 <link rel="stylesheet" href="styles2.css">
-<form action="itiran0.php" method="get">
+<form action="itiran.php" method="get">
 <h1>検索結果</h1>
 <p class="sub">検索パラメータ<span><?php echo "(" . $_SESSION['button'] . "検索)：" . $_SESSION['keywords']; ?></p>
 

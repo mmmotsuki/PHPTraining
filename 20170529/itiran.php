@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="styles2.css">
 <h1>お問い合わせ一覧</h1>
 
-<form action="search.php" method="get">
+<form action="search1.php" method="get">
 <div class="search">
     <input type="text" name="keywords" value="" pettern ="\d{1,4}" placeholder="キーワード">
     <input type="submit" name="ANDbutton" value="AND検索">
@@ -38,7 +38,6 @@
             }
             echo "\t</tr>\n";
         }
-
         echo "<tbody>" . "</table>\n";
         fclose ($handle);
     }

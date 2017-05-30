@@ -2,26 +2,26 @@
 
 session_start();
 
-$_SESSION['sex'] = $_GET['sex'];
-$_SESSION['address'] = $_GET['address1'] . "  " . $_GET['address2'] . "  " . $_GET['address3'] . "  " . $_GET['address4'];
-$_SESSION['name'] = $_GET['sei'] . " " . $_GET['mei'];
-$_SESSION['tell'] = $_GET['tell1'] . "-" . $_GET['tell2'] . "-" . $_GET['tell3'];
-$_SESSION['mail'] = $_GET['mail1'] . "@" . $_GET['mail2'];
-$_SESSION['category'] = $_GET['category'];
-$_SESSION['situmon'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $_GET['situmon']);
+$_SESSION['sex'] = $_POST['sex'];
+$_SESSION['address'] = $_POST['address1'] . "  " . $_POST['address2'] . "  " . $_POST['address3'] . "  " . $_POST['address4'];
+$_SESSION['name'] = $_POST['sei'] . " " . $_POST['mei'];
+$_SESSION['tell'] = $_POST['tell1'] . "-" . $_POST['tell2'] . "-" . $_POST['tell3'];
+$_SESSION['mail'] = $_POST['mail1'] . "@" . $_POST['mail2'];
+$_SESSION['category'] = $_POST['category'];
+$_SESSION['situmon'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $_POST['situmon']);
 
-if($_GET['where1'] !== "" && $_GET['where2'] !== "") {
-    $_SESSION['where'] = $_GET['where1'] . "、" . $_GET['where2'];
+if($_POST['where1'] !== "" && $_POST['where2'] !== "") {
+    $_SESSION['where'] = $_POST['where1'] . "、" . $_POST['where2'];
 }
 else {
-    $_SESSION['where'] = $_GET['where1'] . $_GET['where2'];
+    $_SESSION['where'] = $_POST['where1'] . $_POST['where2'];
 }
 
 ?>
 
 <html>
 <head>
-<title>  </title>
+<title> 内容確認</title>
 <link rel="stylesheet" href="styles1.css">
 </head>
 
@@ -97,8 +97,7 @@ else {
 
 <center><div class="button">
     <label for="button"></label>
-    <input id="button" type="submit" name="soushin" value="送信">
-    　　　
+    <input id="button" type="submit" name="soushin" value="送信">　　　
     <input id="button" type="submit" name="modoru" value="戻る">
 </center>
 </div>

@@ -32,25 +32,24 @@
 
 session_start();
 
-// if (isset($_GET['next']) == NULL && isset($_GET['back']) == NULL) {
-//     $_SESSION['start'] = 0;
-//     $_SESSION['last'] = 1;
-// }
-//
-// if (isset($_GET['next'])) {
-//     $_SESSION['start'] += 2;
-//     $_SESSION['last'] += 2;
-// }
-// elseif (isset($_GET['back'])) {
-//     $_SESSION['start'] -= 2;
-//     $_SESSION['last'] -= 2;
-// }
+if (isset($_GET['next']) === NULL && isset($_GET['back']) === NULL) {
+    $_SESSION['start'] = 0;
+    $_SESSION['last'] = 2;
+}
 
+if (isset($_GET['next'])) {
+    $_SESSION['start'] += 3;
+    $_SESSION['last'] += 3;
+}
+elseif (isset($_GET['back'])) {
+    $_SESSION['start'] -= 3;
+    $_SESSION['last'] -= 3;
+}
 
+// echo $_SESSION['start'] . $_SESSION['last'];
 $file = "itiran.csv";
 if(($handle = fopen ($file, "r")) !== FALSE) {
     $hoge = file("itiran.csv");
-
 
     for ($j = $_SESSION['start']; $j <= $_SESSION['last']; $j++) {
     // while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -72,16 +71,16 @@ if(($handle = fopen ($file, "r")) !== FALSE) {
 <center>
 <div class="button">
     <div class="button1">
-    <?php
-        if ($_SESSION['last'] < count($hoge) - 1) {
-            echo "<input type=submit name=next value=next>";
-        }
-        ?>
-    </div>
-    <div class="button２">
         <?php
         if ($_SESSION['start'] !== 0) {
             echo "<input type=submit name=back value=back>";
+        }
+        ?>
+    </div>
+    <div class="button2">
+    <?php
+        if ($_SESSION['last'] < count($hoge) - 1) {
+            echo "<input type=submit name=next value=next>";
         }
         ?>
     </div>
