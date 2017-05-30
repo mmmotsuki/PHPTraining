@@ -46,10 +46,22 @@ elseif (isset($_GET['back'])) {
     $_SESSION['last'] -= 3;
 }
 
+if ($_SESSION['ONOFF'] === NULL) {
+    $_SESSION['button'] == "OFF";
+}
+
 // echo $_SESSION['start'] . $_SESSION['last'];
 $file = "itiran.csv";
+
+if($_SESSION['ONOFF'] == "ON") {
+    $file = "search.cvs";
+    $_SESSION['start'] = 0;
+    $_SESSION['last'] = 2;
+    // $_SESSION['button'] == "OFF";
+}
+
 if(($handle = fopen ($file, "r")) !== FALSE) {
-    $hoge = file("itiran.csv");
+    $hoge = file($file);
 
     for ($j = $_SESSION['start']; $j <= $_SESSION['last']; $j++) {
     // while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -62,7 +74,6 @@ if(($handle = fopen ($file, "r")) !== FALSE) {
         }
         echo "\t</tr>\n";
     }
-
     echo "<tbody>" . "</table>\n";
     fclose ($handle);
 }

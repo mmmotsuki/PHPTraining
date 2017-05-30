@@ -1,92 +1,84 @@
-<!-- <?php
-$fp= fopen("search.csv", "r");
-$lines = fgets($fp);
-fclose($fp);
-$hoge = file("itiran.csv");
-var_dump($hoge);
-?> -->
-
-<html>
-<head>
-<title>お問い合わせ一覧</title>
-</head>
-<body>
-<div class="main">
-<link rel="stylesheet" href="styles2.css">
-<h1>お問い合わせ一覧</h1>
-
-<form action="aaa.php" method="get">
 
 
-<table>
-    <tbody>
-    <tr>
-    <th id="no">No.</th>
-    <th id="name">氏名</th>
-    <th id="category">性別</th>
-    <th id="address">住所</th>
-    <th id="tell">電話番号</th>
-    <th id="mail">メールアドレス</th>
-    <th id="where">どこで知った</th>
-    <th id="category">質問カテゴリ</th>
-    <th id="situmon">質問内容</th>
-    </tr>
+ <html>
+ <head>
+ <title>詳細一覧</title>
+ </head>
+ <body>
+ <div class="main">
+ <link rel="stylesheet" href="styles2.css">
+ <h1>お問い合わせ一覧</h1>
 
-<?php
+ <form action="search1.php" method="get">
+ <div class="search">
+     <input type="text" name="keywords" value="" pettern ="\d{1,4}" placeholder="キーワード">
+     <input type="submit" name="ANDbutton" value="AND検索" onclick="form.action='search1.php'; return true">
+     <input type="submit" name="ORbutton" value="OR検索" onclick="form.action='search1.php'; return true">
+ </div>
 
-session_start();
-
-if (isset($_GET['next']) == NULL && isset($_GET['back']) == NULL) {
-    $_SESSION['start'] = 0;
-    $_SESSION['last'] = 1;
-}
-
-if (isset($_GET['next'])) {
-    $_SESSION['start'] += 2;
-    $_SESSION['last'] += 2;
-}
-elseif (isset($_GET['back'])) {
-    $_SESSION['start'] -= 2;
-    $_SESSION['last'] -= 2;
-}
-
-
-$file = "itiran.csv";
-if(($handle = fopen ($file, "r")) !== FALSE) {
-    $hoge = file("itiran.csv");
-
-
-    for ($j = $_SESSION['start']; $j <= $_SESSION['last']; $j++) {
-    // while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-        if ($j < count($hoge)) {
-            $data = explode(",", $hoge[$j]);
-            echo "\t<tr>\n";
-            for($i = 0; $i < count($data); $i++) {
-                echo "\t\t<td>{$data[$i]}</td>\n";
+     <table>
+         <tbody>
+         <tr>
+            <?php
+            if (isset($_GET['checkbutton']) === FALSE){
+                echo "<th id=check></th>";
             }
-        }
-        echo "\t</tr>\n";
-    }
+         ?>
+         <th id="no">No.</th>
+         <th id="name">氏名</th>
+         <th id="category">性別</th>
+         <th id="address">住所</th>
+         <th id="tell">電話番号</th>
+         <th id="mail">メールアドレス</th>
+         <th id="where">どこで知った</th>
+         <th id="category">質問カテゴリ</th>
+         <th id="situmon">質問内容</th>
+         </tr>
 
-    echo "<tbody>" . "</table>\n";
-    fclose ($handle);
+     <?php
+
+if (isset($_GET['checkbutton'])) {
+    if(isset($_GET['check'])) {
+        $hoge = $_GET['check'];
+    }
+    else {
+        $hoge = [];
+    }
 }
-?>
+elseif(($handle = fopen ("itiran.csv", "r")) !== FALSE) {
+    $hoge = file("itiran.csv");
+}
 
+        for ($i = 0; $i < count($hoge); $i++) {
+            $data9 = $hoge[$i];
+        // while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            $data = explode(",", str_replace('"', '', $hoge[$i]));
+            echo "<label for='tr'>";
+            echo "\t<tr id='tr'>\n";
+            if (isset($_GET['checkbutton']) === FALSE){
+            echo "\t\t<td> <input type='checkbox' name='check[]' value='$data9'> </td>\n";
+        }
+            for($j = 0; $j < count($data); $j++) {
+                echo "\t\t<td>{$data[$j]}</td>\n";
+            }
+            echo "\t</tr>\n";
+        }
+        echo "<tbody>" . "</table>\n";
+
+     ?>
 <center>
-<div class="search">
+<div class="button">
     <?php
-    if ($_SESSION['last'] !== count($hoge)) {
-        echo "<input type=submit name=next value=next>";
-    }
-    if ($_SESSION['start'] !== 0) {
-        echo "<input type=submit name=back value=back>";
-    }
-    ?>
+    if (isset($_GET['checkbutton'])) {
+         echo "<input type=submit name=aaa value=一覧表示 onclick=form.action='aaa.php'; return true>";
+     }
+     else {
+        echo "<input type=submit name=checkbutton value=詳細表示 onclick=form.action='aaa.php'; return true>";
+     }
+?>
 </div>
 </center>
 
-<br><br>
 </div>
 </body>
 </html>

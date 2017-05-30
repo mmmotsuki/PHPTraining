@@ -92,7 +92,25 @@ fclose ($fp);
 
     <?php
 
+    // session_start();
+
+    if (isset($_GET['next']) === NULL && isset($_GET['back']) === NULL) {
+        $_SESSION['start'] = 0;
+        $_SESSION['last'] = 2;
+    }
+
+    if (isset($_GET['next'])) {
+        $_SESSION['start'] += 3;
+        $_SESSION['last'] += 3;
+    }
+    elseif (isset($_GET['back'])) {
+        $_SESSION['start'] -= 3;
+        $_SESSION['last'] -= 3;
+    }
+
     $file = "search.csv";
+
+
     if (($handle = fopen ($file, "r")) !== FALSE) {
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
             echo "\t<tr>\n";

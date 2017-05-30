@@ -97,8 +97,8 @@ else {
 
 <center><div class="button">
     <label for="button"></label>
-    <input id="button" type="submit" name="soushin" value="送信">　　　
-    <input id="button" type="submit" name="modoru" value="戻る">
+    <input id="button" type="submit" name="soushin" value="送信" onclick="form.action='soushin.php'; return true">　　　
+    <input id="button" type="submit" name="modoru" value="戻る" onclick="form.action='otoiawase.php'; return true">
 </center>
 </div>
 

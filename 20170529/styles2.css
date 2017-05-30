@@ -3,7 +3,7 @@
 }*/
 
 .main {
-    width:1400px;
+    width:1500px;
     border: 1px solid #E2D9D0;
     background: #fff;
     margin: 30px auto;
@@ -12,7 +12,7 @@
 table {
     border-collapse: collapse;
     table-layout: fixed;
-    width: 1000px;
+    width: 1200px;
     border: 1px solid red;
     margin: 0 auto;
 }
@@ -28,11 +28,17 @@ td, tr {
     border: 1px solid #C0C0C0;
     word-wrap: break-word;
     padding: 0px 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 th {
     border: 1px solid #C0C0C0;
     background-color: #E2D9D0;
     /*word-wrap: break-word;*/
+}
+#check {
+    width: 30px;
 }
 #no {
     width: 50px;
@@ -60,8 +66,16 @@ th {
     width: 50px;
 }
 #situmon {
-    width: 250px;
+    /*width: 250px;
     word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;*/
+    width: 250px;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+
 }
 #color {
     background-color: #ffcc99;

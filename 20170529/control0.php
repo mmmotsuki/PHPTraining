@@ -5,15 +5,16 @@ $_SESSION['keywords'] = $_GET['keywords'];
 
 if (isset($_GET['ANDbutton'])) {
     $_SESSION['button'] = "AND";
-    header('Location:search.php');
+    $_SESSION['ONOFF'] = "ON";
+    header('Location:search2.php');
     exit;
 }
 elseif (isset($_GET['ORbutton'])) {
     $_SESSION['button'] = "OR";
-    header('Location:search.php');
+    $_SESSION['ONOFF'] = "ON";
+    header('Location:search2.php');
     exit;
 }
-
 
     //
     // if (isset($_GET['next']) == NULL && isset($_GET['back']) == NULL) {

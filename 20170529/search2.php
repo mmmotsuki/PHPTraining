@@ -9,13 +9,13 @@ rewind( $fp );
 
 //入力キーワードを空白区切りで配列に格納
 $SearchArr = [];
-$str = str_replace("　", " ", $_GET['keywords']);
+$str = str_replace("　", " ", $_SESSION['keywords']);
 $SearchArr = explode(" ", $str);
 
 if ($file) {
     if (empty($SearchArr) === FALSE) {
         //AND検索･･･文字列一致数＝キーワードの個数
-        if ($_GET['button'] == "AND") {
+        if ($_SESSION['button'] === "AND") {
             while ($line = fgets($file)) {
                 $flag = 0;  //一致数カウンタ
                 for ($j = 0; $j < count($SearchArr); $j++) {
@@ -35,7 +35,7 @@ if ($file) {
         }
 
         //OR検索･･･文字列一致数>0
-        elseif ($_GET['button'] == "OR") {
+        elseif ($_SESSION['button'] === "OR") {
             while ($line = fgets($file)) {
                 $flag = 0;  //一致数カウンタ
                 for ($j = 0; $j < count($SearchArr); $j++) {
@@ -60,16 +60,19 @@ if ($file) {
 
 fclose ($file);
 fclose ($fp);
+
+header('Location:itiran0.php');
+
 ?>
 
-<html>
+<!-- <html>
 <head>
 <title>検索結果</title>
 </head>
 <body>
 <div class="main">
 <link rel="stylesheet" href="styles2.css">
-<form action="itiran.php" method="get">
+<form action="itiran0.php" method="get">
 <h1>検索結果</h1>
 <p class="sub">検索パラメータ<span><?php echo "(" . $_SESSION['button'] . "検索)：" . $_SESSION['keywords']; ?></p>
 
@@ -88,20 +91,41 @@ fclose ($fp);
     </tr>
 
     <?php
+    //
+    // $file = "search.csv";
+    // if (($handle = fopen ($file, "r")) !== FALSE) {
+    //     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+    //         echo "\t<tr>\n";
+    //         for ($i = 0; $i < count($data); $i++) {
+    //             echo "\t\t<td>{$data[$i]}</td>\n";
+    //         }
+    //         echo "\t</tr>\n";
+    //     }
+    //     echo "<tbody>" . "</table>\n";
+    //     ftruncate($handle, 0);
+    //     fclose ($handle);
+    // }
 
     $file = "search.csv";
-    if (($handle = fopen ($file, "r")) !== FALSE) {
-        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            echo "\t<tr>\n";
-            for ($i = 0; $i < count($data); $i++) {
-                echo "\t\t<td>{$data[$i]}</td>\n";
+    if(($handle = fopen ($file, "r")) !== FALSE) {
+        $hoge = file("search.csv");
+
+        for ($j = $_SESSION['start']; $j <= $_SESSION['last']; $j++) {
+        // while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            if ($j < count($hoge)) {
+                $data = explode(",", str_replace('"', '', $hoge[$j]));
+                echo "\t<tr>\n";
+                for($i = 0; $i < count($data); $i++) {
+                    echo "\t\t<td>{$data[$i]}</td>\n";
+                }
             }
             echo "\t</tr>\n";
         }
+
         echo "<tbody>" . "</table>\n";
-        ftruncate($handle, 0);
         fclose ($handle);
     }
+
     ?>
 
 <center>
@@ -110,7 +134,26 @@ fclose ($fp);
     </div>
 </center>
 
+<center>
+<div class="button">
+    <div class="button1">
+        <?php
+        if ($_SESSION['start'] !== 0) {
+            echo "<input type=submit name=back value=back>";
+        }
+        ?>
+    </div>
+    <div class="button2">
+    <?php
+        if ($_SESSION['last'] < count($hoge) - 1) {
+            echo "<input type=submit name=next value=next>";
+        }
+        ?>
+    </div>
+</div>
+</center>
+
 <br><br>
 </div>
 </body>
-</html>
+</html> -->
